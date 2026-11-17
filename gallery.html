@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triple B</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Image hover effect only */
+        .gallery .image-card {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .gallery .image-card img {
+            display: block;
+        }
+
+        .gallery .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery .image-card:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .gallery .image-overlay p {
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header">
+	<div class="Navbar">
+	<nav>
+	<a href="Triple_B_Blog.html">
+		<button class="navbtn pop-linkk" ><p class="henny-penny-regular">Home</p></button>
+	</a>
+	<a href="Blog.html">
+		<button class="navbtn pop-link"  class="navbtn" ><p class="henny-penny-regular">Blog</p></button>
+	</a>
+	<a href="Gallery.html">
+		<button class="navbtn pop-linkk"  class="navbtn" ><p class="henny-penny-regular">Gallery</p></button>
+	</a>
+	<a href="Resume.html">
+		<button class="navbtn pop-link"  class="navbtn" ><p class="henny-penny-regular">Resume</p></button>
+	</a>
+	<a href="contact.html">
+		<button class="navbtn pop-linkk"  class="navbtn" ><p class="henny-penny-regular">Q&A / Contact</button>
+	</a>
+	</nav>
+	</div>
+	</div>
+
+
+    <div class="galcontent">
+        <div class="gallery" class="permanent-marker-regular">
+
+            <h1 class="permanent-marker-regular">
+                Welcome to Breydon's BIR Gallary
+            </h1>
+
+            <h3 class="permanent-marker-regular">
+                hover over a poloroid to learn more
+            </h3>
+
+            <div class="image-card">
+                <img src="Flute_ss_dissasembal.jpg" alt="Flute disassembly">
+                <div class="image-overlay">
+                    <p class="permanent-marker-regular">Flute disassembly <br>10/9/2026</p>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="image-card">
+                <img src="Pre_Buff_Burnisher.jpg" alt="Burnisher before buffing">
+                <div class="image-overlay">
+                    <p class="permanent-marker-regular">Before buffing <br>10/26/2026</p>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="image-card">
+                <img src="Me_at_buffingMachine.jpg" alt="Working at the buffing machine">
+                <div class="image-overlay">
+                    <p class="permanent-marker-regular">Working at the buffing machine <br>10/26/2026</p>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="image-card">
+                <img src="Post_Buff_Burnisher.jpg" alt="Burnisher after buffing">
+                <div class="image-overlay">
+                    <p class="permanent-marker-regular">After buffing <br>10/26/2026</p>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="image-card">
+                <img src="Port1.jpg" alt="Port image one">
+                <div class="image-overlay">
+                    <p class="permanent-marker-regular">Porting Tool 1 <br>10/26/2026</p>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="image-card">
+                <img src="Port2.jpg" alt="Port image two">
+                <div class="image-overlay">
+                    <p class="permanent-marker-regular">Porting Tool 2 <br>10/26/2026</p>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="image-card">
+                <img src="Port3.jpg" alt="Port image three">
+                <div class="image-overlay">
+                    <p class="permanent-marker-regular">Porting Tool 3 <br>10/26/2026</p>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="image-card">
+                <img src="solder.jpg" alt="Soldering">
+                <div class="image-overlay">
+                    <p class="permanent-marker-regular">Soldering <br>10/27/2026</p>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="image-card">
+                <img src="Patch.jpg" alt="Patch">
+                <div class="image-overlay">
+                    <p class="permanent-marker-regular">Patch Made On: <br>11/12/2026</p>
+                </div>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+</body>
+</html>

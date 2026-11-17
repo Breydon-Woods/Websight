@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+}
+
+/* ------------------------------
+   Reset and base styles
+------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  color: rgb(60, 30, 20);
+  background: #000;
+
+  overflow-x: hidden;
+}
+
+/* ------------------------------
+   Fixed repeating background
+------------------------------ */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("Background.png");
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+
+  pointer-events: none;
+
+  animation: background-scroll 250s linear infinite;
+}
+
+@keyframes background-scroll {
+  from {
+    background-position: center top;
+  }
+
+  to {
+    background-position: center bottom;
+  }
+}
+
+/* ------------------------------
+   Black fade at top and bottom
+------------------------------ */
+
+body::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.75) 10%,
+    rgba(0, 0, 0, 0) 28%,
+    rgba(0, 0, 0, 0) 72%,
+    rgba(0, 0, 0, 0.75) 90%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+
+  pointer-events: none;
+}
+
+/* ------------------------------
+   Main content containers
+------------------------------ */
+
+.content {
+  width: min(700px, calc(100% - 32px));
+  margin: 40px auto;
+  padding: clamp(24px, 5vw, 56px);
+
+  border: 1px solid rgba(60, 30, 20, 0.12);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+.galcontent {
+  width: min(700px, calc(100% - 32px));
+  margin: 40px auto;
+  padding: clamp(24px, 5vw, 56px);
+
+  border: 1px solid rgba(60, 30, 20, 0.12);
+  border-radius: 14px;
+
+  /* Transparent gallery padding */
+  background: transparent;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+/* ------------------------------
+   Typography
+------------------------------ */
+
+h1 {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+p {
+  line-height: 1.6;
+  font-family: "Raleway", sans-serif;
+}
+
+a {
+  color: #38bdf8;
+  font-size: 1.2rem;
+}
+
+/* ------------------------------
+   Navigation
+------------------------------ */
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.navbtn {
+  padding: 10px 18px;
+  margin: 0;
+
+  border-radius: 999px;
+
+  color: rgb(60, 30, 20);
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbtn:hover,
+.navbtn:focus-visible {
+  color: white;
+  background-color: rgb(60, 30, 20);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------
+   Font utility classes
+------------------------------ */
+
+.henny-penny-regular {
+  font-family: "Henny Penny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.permanent-marker-regular {
+  color: red;
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ------------------------------
+   Animated links
+------------------------------ */
+
+.pop-link,
+.pop-linkk {
+  display: inline-block;
+
+  color: rgb(60, 30, 20);
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: transform 0.25s ease-in-out;
+}
+
+.pop-link:hover {
+  transform: scale(1.25) rotate(35deg);
+}
+
+.pop-linkk:hover {
+  transform: scale(1.25) rotate(-35deg);
+}
+
+/* ------------------------------
+   Gallery
+------------------------------ */
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  min-height: 100vh;
+}
+
+/* ------------------------------
+   Image cards
+------------------------------ */
+
+.gallery .image-card {
+  position: relative;
+
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  background: transparent;
+  border-radius: 3px;
+
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.75),
+    0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ------------------------------
+   Images with white polaroid border
+------------------------------ */
+
+.gallery .image-card img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  border: solid #f7f5f0;
+  border-width: 25px 15px 85px;
+  border-radius: 3px;
+
+  background: transparent;
+
+  box-shadow: none;
+}
+
+/* ------------------------------
+   Image hover overlay
+------------------------------ */
+
+.gallery .image-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery .image-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.gallery .image-overlay p {
+  margin: 0;
+
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* ------------------------------
+   Responsive adjustments
+------------------------------ */
+
+@media (max-width: 600px) {
+  .content,
+  .galcontent {
+    width: min(100% - 20px, 700px);
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  .navbtn {
+    padding-inline: 20px;
+    margin-inline: 5px;
+  }
+
+  .gallery .image-card {
+    width: 90%;
+  }
+
+  .gallery .image-card img {
+    width: 100%;
+
+    border: solid #f7f5f0;
+    border-width: 25px 15px 85px;
+  }
+
+  body::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.7) 15%,
+      transparent 32%,
+      transparent 68%,
+      rgba(0, 0, 0, 0.7) 85%,
+      rgba(0, 0, 0, 0.95) 100%
+    );
+  }
+}
+
+.blogimg {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+
+
+
+
+.Blogimg {
+float: left;
+  margin-right: 15px;
+  width: 308px;
+  height: 667px;
+}
+
+
+
+
+
+
