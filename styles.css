@@ -373,6 +373,10 @@ float: left;
   border: solid #f7f5f0;
   border-width: 25px 15px 85px;
   border-radius: 3px;
+
+    box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.75),
+    0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 
